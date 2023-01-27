@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark" ">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
         <button
@@ -81,69 +81,27 @@
       <!-- inizio sezione2 -->
       <div class="container">
         <h2>Favourite Song:</h2>
-        <div
-          class="row justify-content-center lign-items-center"
-          id="contenitore2"
-        ></div>
+        <div class="row my-3" id="contenitore2"></div>
       </div>
       <!-- fine sezione2 -->
       <!-- inizio sezione3 -->
       <div class="container">
-        <div
-          class="row justify-content-center lign-items-center"
-          id="contenitore3"
-        >
-          <div id="carouselExampleCaptions" class="carousel slide">
-            <div class="carousel-indicators">
-              <button
-                type="button"
-                data-bs-target="#carouselExampleCaptions"
-                data-bs-slide-to="0"
-                class="active"
-                aria-current="true"
-                aria-label="Slide 1"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleCaptions"
-                data-bs-slide-to="1"
-                aria-label="Slide 2"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleCaptions"
-                data-bs-slide-to="2"
-                aria-label="Slide 3"
-              ></button>
+        <!-- Inizio carosello -->
+        <div class="row justify-content-center align-items-center my-3">
+          <div class="col col-4 mx-auto">
+            <div class="carosello">
+              <div>
+                <h3>Carosello con album preferiti</h3>
+                <div
+                  id="carouselExampleSlidesOnly"
+                  class="foto-carousel carousel slide"
+                  data-bs-ride="carousel"
+                  style="height: 300px; width: 300px"
+                >
+                  <div class="carousel-inner ms-5"></div>
+                </div>
+              </div>
             </div>
-            <!-- parte da creare con javascript -->
-            <div class="carousel-inner"></div>
-            <!-- fine terza -->
-            <!-- fine parte da creare con javascript -->
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Next</span>
-            </button>
           </div>
         </div>
       </div>

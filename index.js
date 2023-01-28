@@ -22,8 +22,8 @@ const canzoni = async () => {
       contenitore1.innerHTML += `
             <div class="col  m-1">
                 <a href="${songs.link}">
-                    <div class="card text-bg-dark text-light " style="width: 18rem;" height="150px">
-                        <img src="${songs.album.cover_medium}" class="card-img-top" alt="...">
+                    <div class="card text-bg-dark text-light rounded-5" style="width: 18rem;" height="150px">
+                        <img src="${songs.album.cover_medium}" class="card-img-top rounded-top-5" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">${songs.title}</h5><hr />
                             <p class="card-text">${songs.artist.name}</p>
@@ -46,12 +46,12 @@ const canzoni = async () => {
     for (let i = 0; i < 1; i++) {
       let songs = canzoni[i];
       contenitore2.innerHTML = `
-    <div class="col">
+    <div class="col col-8">
         <a href="${songs.link}">
-            <div class="card text-bg-dark text-light mb-3" ">
+            <div class="card text-bg-dark text-light mb-3 rounded-5">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="${songs.album.cover_big}" class="img-fluid rounded-start h-100" alt="...">
+                        <img src="${songs.album.cover_big}" class="img-fluid rounded-start-5 h-100" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body position-absolute bottom-0 ">
@@ -77,15 +77,16 @@ async function favouriteAlbum() {
       let [canzone] = await fetchByQuery(singolaQuery);
       const sezione = document.querySelector(".carousel-inner");
       sezione.innerHTML += ` 
-        <div class="carousel-item ${i == 0 ? "active" : " "} rounded-4">
+        <div class="carousel-item ${i == 0 ? "active" : " "} ">
         <img src="${
           canzone.album.cover_medium
-        }" class="d-block w-100" alt="..." />
+        }" class="d-block w-100 rounded-5" alt="..." />
           </div>`;
     }
   } catch (error) {
     console.log(error);
   }
 }
+
 canzoni();
 favouriteAlbum();

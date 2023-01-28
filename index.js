@@ -25,7 +25,7 @@ const canzoni = async () => {
                     <div class="card text-bg-dark text-light rounded-5" style="width: 18rem;" height="150px">
                         <img src="${songs.album.cover_medium}" class="card-img-top rounded-top-5" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">${songs.title}</h5><hr />
+                            <h5 class="card-title" songRank="${songs.rank}">${songs.title}</h5><hr />
                             <p class="card-text">${songs.artist.name}</p>
                         </div>
                     </div>
@@ -55,8 +55,8 @@ const canzoni = async () => {
                     </div>
                     <div class="col-md-8">
                         <div class="card-body position-absolute bottom-0 ">
-                            <h5 class="card-title mb-3">${songs.title}</h5> <hr />
-                            <p class="card-text mb-2">${songs.artist.name}</p>
+                            <h5 class="card-title mb-3" songRank="${songs.rank}">${songs.title}</h5> <hr />
+                            <p class="card-text mb-2" >${songs.artist.name}</p>
                         </div>
                     </div>
             </div>
@@ -88,5 +88,48 @@ async function favouriteAlbum() {
   }
 }
 
+const arrayDiTitoli = () => {
+  let h5 = document.querySelectorAll("h5");
+  let titoli = [];
+  h5.forEach((singoloTitolo) => {
+    titoli.push({
+      titolo: singoloTitolo.innerText,
+      rank: Number(singoloTitolo.getAttribute("songRank")),
+    });
+  });
+  return titoli;
+};
+
+const titoliAlfabetici = () => {
+  let titoli = arrayDiTitoli();
+  let sorted = titoli.map((canzone) => canzone.titolo).sort();
+  console.log(sorted);
+  let alert = document.querySelector(".modal ul.canzoniOrdinate");
+  alert.innerHTML = "";
+  sorted.forEach((canzone) => {
+    alert.innerHTML += `<li class='list-group-item'>
+      ${canzone}
+      
+      </li>`;
+  });
+};
+
+const soloTitolo = () => {
+  let titoli = arrayDiTitoli();
+  let sorted = titoli.sort((a, b) => {
+    return a.rank - b.rank;
+  });
+  console.log(sorted);
+  let alert = document.querySelector(".alert ul.canzoniOrdinate");
+  alert.innerHTML = "";
+  sorted.forEach((canzone) => {
+    alert.innerHTML += `<li class='list-group-item'>
+      ${canzone.titolo} - ${canzone.rank}
+      </li>`;
+  });
+  alert.parentElement.classList.toggle("d-none");
+};
+
 canzoni();
 favouriteAlbum();
+titoliAlfabetici();
